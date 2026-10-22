@@ -1,6 +1,7 @@
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
-import { Layout } from './components/Layout/Layout';
-import { Home } from './pages/Home/Home';
+import { CreatorPage } from './pages/CreatorPage/CreatorPage';
+import { CreatorsPage } from './pages/CreatorsPage/CreatorsPage';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { theme } from './styles/theme';
 
@@ -8,9 +9,13 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Layout>
-        <Home />
-      </Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CreatorsPage />} />
+          <Route path="/creators/:creatorId" element={<CreatorPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

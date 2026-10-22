@@ -10,6 +10,10 @@ export class CreatorsRepositoryService {
     return this.prisma.creator.findMany({ orderBy: { name: 'asc' } });
   }
 
+  findById(id: string): Promise<Creator | null> {
+    return this.prisma.creator.findUnique({ where: { id } });
+  }
+
   async exists(id: string): Promise<boolean> {
     const creator = await this.prisma.creator.findUnique({
       where: { id },

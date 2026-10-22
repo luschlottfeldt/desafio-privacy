@@ -27,12 +27,31 @@ O `npm run setup` instala as dependências, sobe o banco, gera o Prisma Client, 
 
 ## Testes
 
-Os testes e2e precisam do banco rodando (`npm run db:up`).
+Os testes e2e precisam do banco rodando (`npm run db:up`). Eles usam um banco separado, `privacy_test`, criado e migrado automaticamente a partir de `backend/.env.test`, então não alteram os dados de desenvolvimento.
 
 ```bash
 npm test
 npm run test:e2e
 ```
+
+## API
+
+| Rota | Descrição |
+| --- | --- |
+| `GET /healthcheck` | Status da API e do banco |
+| `GET /users` | Usuários disponíveis para o switch |
+| `GET /creators` | Lista de criadoras |
+| `GET /creators/:creatorId` | Dados da criadora (`404` se não existir) |
+| `POST /creators/:creatorId/followers` | Corpo `{ "userId" }`. `201` ao seguir, `409` se já segue, `404` se criadora ou usuário não existe |
+| `DELETE /creators/:creatorId/followers/:userId` | `204` ao deixar de seguir, `404` se não segue |
+| `GET /creators/:creatorId/followers/count?userId=` | `{ creatorId, count }`, com `isFollowing` quando `userId` é informado |
+
+IDs inválidos (não UUID) retornam `400`.
+
+## Páginas
+
+- `/`: lista de criadoras.
+- `/creators/:creatorId?userId=`: perfil da criadora. O usuário selecionado fica na URL. Sem usuário, abre o seletor e a página mostra só o número de seguidores.
 
 ## Scripts da raiz
 

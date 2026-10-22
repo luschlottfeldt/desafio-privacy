@@ -1,18 +1,24 @@
 export const theme = {
   colors: {
-    background: '#f6f4f1',
+    background: '#f3f1f6',
     surface: '#ffffff',
-    text: '#1c1b1f',
-    textMuted: '#6b6870',
-    primary: '#e4572e',
-    border: '#e7e3dd',
+    text: '#1d1a26',
+    textMuted: '#6c6878',
+    primary: '#4b1d6b',
+    primaryHover: '#3a1554',
+    primarySoft: '#efe7f6',
+    border: '#e3dfea',
+    danger: '#b3261e',
+    overlay: 'rgba(29, 26, 38, 0.48)',
   },
   fonts: {
-    body: "'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+    body: "'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif",
   },
   radii: {
-    md: '12px',
-    lg: '20px',
+    sm: '8px',
+    md: '14px',
+    lg: '24px',
+    full: '999px',
   },
   spacing: {
     xs: '4px',
@@ -20,6 +26,7 @@ export const theme = {
     md: '16px',
     lg: '24px',
     xl: '40px',
+    xxl: '64px',
   },
   breakpoints: {
     tablet: '768px',

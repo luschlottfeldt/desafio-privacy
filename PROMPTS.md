@@ -90,4 +90,22 @@ lembre-se de manter o uso de TDD. mantenha as regras simples e o código limpo. 
 **Por que este prompt: para realizar a criação completa do back end com todo o projeto nessa parte finalizado.**
 **O que a IA entregou: o código pronto, porem com problemas de arquitetura. o código é funcional porém.**
 **O que estava errado ou faltando, e o que você fez: a IA interpretou algumas coisas muito literalmente e os testes E2E não foram feitos, além que algumas regras não foram obedecidas, como SOLID ao máximo possível**
-**Como você conferiu: análise de código de teste com Insomnia.**
+**Como você conferiu: análise de código e teste com Insomnia, além da execução de testes unitários**
+
+## Prompt 4
+**Horário:** 2026-10-22 15:06
+**Ferramenta:** Claude Code
+**Texto do prompt:**
+```
+os testes e2e deveriam ter sido feitos, pois ele é um requisito de entrega, ou seja, a tarefa foi entregue de forma incomnpleta. agora vc vai corrigir isso e adicionar os testes e2e tbm para finalziar completamente a entrega do backend.
+vc ira agora implementar o front. implemente a pagina para retornar o criador de conteúdo. a pagina deve conter o id do usuario na url. para faciliar, a pagina inicial deve ser uma lista dos criadores existentes para levar para sua pagina. ao abrir a pagina de um criador sem o usuario selecionado, exiba uma janela modal com os usuarios disponiveis, com a possibilidade de fechar esta janela sem selecionar um usuario. se um usuario ja esta selecionado a pagina é exibida integralmente com um botao para mudar de usuario. a pagina deve exibir a quantidade de desguidores. se um usuario esta selecionado exibir um botao para seguir ou deixar de seguir conforme o estado retornado da API. se nenhum usuario esta selecionado, nao exibe os botoes. somente a quantidade de seguidores.
+siga.
+```
+**Por que este prompt: finalizar o desenvolvimento do projeto, entregando o front end simples e finciional se comunicando com a api**
+**O que a IA entregou: os teste e2e restantes da tarefa anterior e o front end finalizado, funcional e responsivo como solicitado**
+**O que estava errado ou faltando, e o que você fez: não houve erros dessa vez**
+**Como você conferiu: análise de codigo, execução dos testes unitarios e e2e, verificação das regras de negocio na api e teste funcional do frontend.**
+
+**Decisões que tomei**: Não utilizar templates prontos ou boilerplates que já possuo. Dei prioridade em desenvolver o desafio do zero somente com IA com o mínimo de interferência manual, aceitando alguns trade-offs como arquitetura. Também decidi não criar coisas além do pedido, como rotas para criação de usuários e autenticação para focar nas funcionalidades requisitadas para me manter dentro da quantidade de prompts ideais para entrega do desafio para ficar dentro de uma margem segura a fim de não tornar os prompts maiores do que o necessário. Não tive experiências boas com prompts muito compridos. Também aceitei o erro da IA em não criar multiplos services para tentar se aproximar de SOLID o máximo possível, pois a arquitetura criada era simples demais para isso.
+
+**O que não verifiquei**: a parte geral de infra não foi checada, como docker e banco de dados. Também não verifiquei os arquivos do prisma, migrtions e seeders. Deixei na mão da IA realizar a criação da infra e do banco de dados para criar um tempo. Em um ambiente produtivo isso não seria feito.

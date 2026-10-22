@@ -44,4 +44,20 @@ describe('CreatorsRepositoryService', () => {
 
     await expect(repository.exists('creator-1')).resolves.toBe(false);
   });
+
+  it('returns the creator found by id', async () => {
+    const creator = { id: 'creator-1', name: 'Ana', createdAt: new Date() };
+    prisma.creator.findUnique.mockResolvedValue(creator);
+
+    await expect(repository.findById('creator-1')).resolves.toEqual(creator);
+    expect(prisma.creator.findUnique).toHaveBeenCalledWith({
+      where: { id: 'creator-1' },
+    });
+  });
+
+  it('returns null when no creator is found by id', async () => {
+    prisma.creator.findUnique.mockResolvedValue(null);
+
+    await expect(repository.findById('creator-1')).resolves.toBeNull();
+  });
 });

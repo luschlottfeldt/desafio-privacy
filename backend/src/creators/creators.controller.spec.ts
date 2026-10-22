@@ -4,7 +4,7 @@ import { CreatorsService } from './creators.service.js';
 
 describe('CreatorsController', () => {
   let controller: CreatorsController;
-  const service = { findAll: vi.fn() };
+  const service = { findAll: vi.fn(), findById: vi.fn() };
 
   beforeEach(async () => {
     vi.resetAllMocks();
@@ -22,5 +22,13 @@ describe('CreatorsController', () => {
     service.findAll.mockResolvedValue(creators);
 
     await expect(controller.findAll()).resolves.toEqual(creators);
+  });
+
+  it('returns the creator provided by the service', async () => {
+    const creator = { id: 'creator-1', name: 'Ana' };
+    service.findById.mockResolvedValue(creator);
+
+    await expect(controller.findById('creator-1')).resolves.toEqual(creator);
+    expect(service.findById).toHaveBeenCalledWith('creator-1');
   });
 });

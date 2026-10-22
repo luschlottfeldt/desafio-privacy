@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, ParseUUIDPipe } from '@nestjs/common';
 import { CreatorResponseDto } from './dto/creator-response.dto.js';
 import { CreatorsService } from './creators.service.js';
 
@@ -9,5 +9,12 @@ export class CreatorsController {
   @Get()
   findAll(): Promise<CreatorResponseDto[]> {
     return this.creatorsService.findAll();
+  }
+
+  @Get(':creatorId')
+  findById(
+    @Param('creatorId', ParseUUIDPipe) creatorId: string,
+  ): Promise<CreatorResponseDto> {
+    return this.creatorsService.findById(creatorId);
   }
 }

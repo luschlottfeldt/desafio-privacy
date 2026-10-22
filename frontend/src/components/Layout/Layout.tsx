@@ -1,14 +1,16 @@
 import type { ReactNode } from 'react';
-import { Content, Wrapper } from './Layout.styles';
+import { Main, TopBar, Wrapper } from './Layout.styles';
 
 type LayoutProps = {
+  topBar?: ReactNode;
   children: ReactNode;
 };
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ topBar, children }: LayoutProps) {
   return (
     <Wrapper>
-      <Content>{children}</Content>
+      {topBar && <TopBar>{topBar}</TopBar>}
+      <Main>{children}</Main>
     </Wrapper>
   );
 }
