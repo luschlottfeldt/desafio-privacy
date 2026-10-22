@@ -74,3 +74,20 @@ no final disso tudo, vc ira preencher o README.md com as infos necessarias para 
 **O que a IA entregou: todo o boilerplate desejado para seguir com o desenvolvimento do desafio, com uma página estática e uma rota de healthcheck ja na arquitetura desejada.**
 **O que estava errado ou faltando, e o que você fez: eu não fui explicito sobre os testes unitários, mas ainda assim a IA entregou todos eles, incluindo testes e2e.**
 **Como você conferiu: segui o padrão do README.md para subir o projeto localmente e garantir que tudo estava certo, além de executar todos os testes.**
+
+## Prompt 3
+**Horário:** 2026-10-22 15:00
+**Ferramenta:** Claude Code
+**Texto do prompt:**
+```
+tudo funcionando perfeitamente bem. vamos para a proxima etapa do desafio: criar as rotas básicas informadas no desafio além de outras rotas necessárias para garantir o funcionamento da aplicação.
+precisamos de uma rota que retorna todos os usuários para o front poder realizar o switch. o front vai cuidar do estado desse usuario, apenas devemos fornecer os dados necessários para que o front possa fazer a impersonalização. 
+sobre as rotas do desafio, a rota de POST deve barrar que um usuário tente seguir um criador que já segue, retornando o status code adequado para a ação. 
+a rota delete da mesma forma deve impedir a ação pra um usuario que nao segue o criador
+a rota get é padrão. precisamos tbm que essa rota retorne o estado daquele criador para o usuario logado, informando pro front se esse usuario ja segue ou nao esse criador para que o front possa renderizr os componentes no estado correto (seguir ou deixar de seguir). se o id do usuario nao for informado, o sistema retorna apenas a quantidade de seguidores.
+lembre-se de manter o uso de TDD. mantenha as regras simples e o código limpo. teste unitariamente o codigo para garantir as funcionalidades e ao final adicione o novo prompt no PROMPTS.md
+```
+**Por que este prompt: para realizar a criação completa do back end com todo o projeto nessa parte finalizado.**
+**O que a IA entregou: o código pronto, porem com problemas de arquitetura. o código é funcional porém.**
+**O que estava errado ou faltando, e o que você fez: a IA interpretou algumas coisas muito literalmente e os testes E2E não foram feitos, além que algumas regras não foram obedecidas, como SOLID ao máximo possível**
+**Como você conferiu: análise de código de teste com Insomnia.**
