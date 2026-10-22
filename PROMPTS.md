@@ -57,3 +57,20 @@ a partir do proximo prompt eu irei passar cada tarefa que vc irá executar. agor
 **O que estava errado ou faltando, e o que você fez: fui corrigido quanto ao uso de axios (eu falei jest), além das perguntas desnecessárias sobre detalhes de regras de negocio que serei mais específico no momento adequado.**
 **Como você conferiu: garanti que o resumo da compreensão de tudo que seria feito, o que pode e não pode fazer estava correto.**
 
+## Prompt 2
+**Horário:** 2026-10-22 14:15
+**Ferramenta:** Claude Code
+**Texto do prompt:**
+```
+vc esta certo, a ferramenta correta é axios e nao jest. eu errei o nome. sobre as regras de negocio que vc trouxe: o detalhe de cada um sera refinado quando eu enviar o prompt de criação dessas etapas. a partir de agora foque em cada prompt executando exatamente o que eu criei seguindo as regras já estabelecidas. 
+o que faremos agora: criação da infraestrutura total
+vamos criar o arquivo do docker-composer na raiz para iniciar o banco de dados
+vamos criar cada uma das pastas ja informadas e em cada um iniciar seu boilerplate
+backend: criar um projeto nestjs e prisma. para o prisma vc vai criar a migration ja com todas as tabelas discutidas. vc tem liberdade para criar as colunas necessarias para as tabelas de users e creators, mas seja conciso. todas devem  ter createdAt. a tabela followers é 1:N com userId, creatorId e createdAt. crie tbm um seeder para inserir um creator e 10 users diferentes. nessa primeira entrega teremos uma rota inicial chamada healthcheck para conferir o status da api e a conexão com o banco de dados ja com a arquitetura informada. lembre:se de usar TDD. os testes devem passar e vc deve garantir isso antes de entregar.
+no front crie apenas o boilerplate inicial com uma pagina simples hello mundo ja componentizada e pronta para seguir quando eu precisar criar o front
+no final disso tudo, vc ira preencher o README.md com as infos necessarias para iniciar o projeto. o package.json da raiz deve conter os comandos para gerar o prisma e executar migration e seeder. ao final da execução, preencha o PROMPTS.md. ao final dessa tarefa eu devo ser capaz de ler o readme.md, iniciar o projeto seguindo seus passos, subir o servidor e tbm ver a pagina inicial hello world criada. pode seguir
+```
+**Por que este prompt: criar todo o boilerplate inicial para ter o mínimo do projeto em estado de execução para que o desafio seja entregue em poucos prompts, além de iniciar toda a infra e banco de dados.**
+**O que a IA entregou: todo o boilerplate desejado para seguir com o desenvolvimento do desafio, com uma página estática e uma rota de healthcheck ja na arquitetura desejada.**
+**O que estava errado ou faltando, e o que você fez: eu não fui explicito sobre os testes unitários, mas ainda assim a IA entregou todos eles, incluindo testes e2e.**
+**Como você conferiu: segui o padrão do README.md para subir o projeto localmente e garantir que tudo estava certo, além de executar todos os testes.**

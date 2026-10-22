@@ -1,0 +1,40 @@
+generator client {
+  provider            = "prisma-client"
+  output              = "../src/generated/prisma"
+  moduleFormat        = "esm"
+  importFileExtension = "js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String     @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime   @default(now()) @map("created_at")
+  follows   Follower[]
+
+  @@map("users")
+}
+
+model Creator {
+  id        String     @id @default(uuid()) @db.Uuid
+  name      String
+  createdAt DateTime   @default(now()) @map("created_at")
+  followers Follower[]
+
+  @@map("creators")
+}
+
+model Follower {
+  userId    String   @map("user_id") @db.Uuid
+  creatorId String   @map("creator_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  creator   Creator  @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+
+  @@id([userId, creatorId])
+  @@index([creatorId])
+  @@map("followers")
+}
